@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose=require('mongoose');
-const config=require('config'); //using config instead of .env as it is much secure
+
 const dbgr=require('debug')('development:mongoose');
 
 
