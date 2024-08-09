@@ -1,0 +1,58 @@
+<% layout('/layout/boilerplate') %>
+<style>
+  .formContainer{
+    transform: scale(0.95);
+  }
+</style>
+    <div class=" d-flex flex-column">
+      <div class="container py-5 d-flex flex-grow-1">
+        <div class="sidebar col-3 d-flex flex-column d-none d-mid-block d-lg-block">
+          <div class="d-flex flex-column">
+            <a class="mb-2 d-block" href="/shop">All Products</a>
+          </div>
+        </div>
+        <main class=" formContainer col-md-9 col-12 bg-white p-4 shadow ">
+          <h2 class="h4 fw-bold mb-4">Create New Product</h2>
+          <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+              <h3 class="h5 fw-semibold mb-3">Product Details</h3>
+              <div class="mb-3">
+                <label class="form-label fw-medium">Product Image</label>
+                <input name="image" type="file" class="form-control">
+              </div>
+              <div class="row g-3">
+                <div class="col mb-3">
+                  <input name="name" type="text" placeholder="Product Name" class="form-control">
+                </div>
+                <div class="col">
+                  <input name="price" type="text" placeholder="Product Price" class="form-control">
+                </div>
+                <div class="col">
+                  <input name="discount" type="text" placeholder="Discount Price" class="form-control">
+                </div>
+              </div>
+              <div class="col">
+                <input name="description" type="text" placeholder="Add Description" class="form-control">
+              </div>
+            </div>
+    
+            <div>
+              <h3 class="h5 fw-semibold mb-3">Panel Details</h3>
+              <div class="row g-3">
+                <div class="col">
+                  <input name="bgcolor" type="text" placeholder="Background Color" class="form-control">
+                </div>
+                <div class="col">
+                  <input name="panelColor" type="text" placeholder="Panel Color" class="form-control">
+                </div>
+                <div class="col">
+                  <input name="textColor" type="text" placeholder="Text Color" class="form-control">
+                </div>
+              </div>
+            </div>
+            <input class="btn btn-primary mt-3" type="submit" value="Create New Product">
+          </form>
+        </main>
+      </div>
+    </div>
+    

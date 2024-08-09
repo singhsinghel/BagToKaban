@@ -1,0 +1,105 @@
+<% layout('/layout/boilerplate') %>
+<style>
+    .show-img{
+        height: 40vh !important;
+        width: 18rem !important;
+    .show-card{
+        padding: 0;
+    }
+    }
+    @media (max-width:500px) {
+      .img-fluid{
+          transform: scale(0.9);
+      }
+      .review-card{
+        transform: scale(0.8);
+      }
+      .cardmain{
+        width: 100%;
+      }
+      
+    }
+</style>
+<body>
+    <br>
+    <div class="row offset-sm-1 offset-md-3 ">
+     <% if (product.owner) { %>
+      <h3>Owned By <b>@<%= product.owner.username%></b> <br></h3>
+     <% } %>
+        <div class="col-8 cardmain ">
+                      <div class="card mb-3" style="max-width: 540px; background-color:<%= product.panelColor %>">
+                        <div class="row g-0">
+                          <div class="p-1 col-md-4 d-flex justify-content-center align-items-center rounded-start" style="background-color: <%=product.bgcolor %>;" >
+                            <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" class="img-fluid rounded-start "  alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title" style="color: <%= product.textColor %>;"><%= product.name %></h5>
+                              <p class="card-text"> <%= product.description %></p>
+                              <p class="card-text"><small style="color: <%= product.textColor%>;" class="">&#8377 <%= product.price %></small></p>
+                              <a href="/add/<%= product._id %>" class="btn" style="border-color: <%= product.bgcolor %>; color:<%= product.textColor %>">Add to cart</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            <% if (curruser && curruser._id && product.owner && product.owner._id && curruser._id.equals(product.owner._id)) { %>
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <form method="get" action="/products/<%= product._id %>/update"> <button class=" update-btn  btn btn-outline-primary" type="submit">Update</button></form>
+                        </div>
+                 <div class="col-6">
+                    <form method="post" action="/products/<%= product._id %>?_method=delete"> <button class="del-btn btn btn-outline-danger" type="submit">Delete</button></form>
+                 </div>
+                    <% } %>
+                </div>
+              </div>
+        <br>
+        <hr>
+      <% if (curruser) { %>
+        <h4>Leave a Review</h4>
+        <form method="post" action="/products/review/<%= product._id %>" novalidate class="needs-validation">
+            <div class=" mb-3 mt-3">
+                <label class="form-label" for="rating">Rating</label>
+                <fieldset class="starability-slot">
+                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                <input type="radio" id="second-rate1" name="review[rating]" value="1" />
+                <label for="second-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="second-rate2" name="review[rating]" value="2" />
+                <label for="second-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="second-rate3" name="review[rating]" value="3" />
+                <label for="second-rate3" title="Average">3 stars</label>
+                <input type="radio" id="second-rate4" name="review[rating]" value="4" />
+                <label for="second-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="second-rate5" name="review[rating]" value="5" />
+                <label for="second-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+              </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="comment">Comment</label>
+               <textarea cols="30" rows="5" class="form-control" name="review[comment]" id="comment" required ></textarea>
+               <div class="invalid-feedback">Comment should not be empty</div>
+            </div>
+            <button class="btn btn-outline-dark" type="submit" >Submit</button>
+        </form>
+    </div>
+        <div class="col-8 mt-3">
+    <% } %>
+    <% if (product.review.length>0) { %>
+      <div class="row offset-sm-1 offset-md-2 offset-lg-3 ">
+          <h3>Reviews</h3>
+          <% for( let review of product.review  ) {%>
+              <div class=" ms-3 mb-3  col-lg-5 card review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">@<%= review.author.username %></h5>
+                      <p class="card-text starability-result" data-rating="<%= review.rating %>" </p>
+                      <p class="card-text"><%= review.comment %></p> 
+                      <form method="POST" action="/products/review/<%= product._id %>/<%= review._id %>?_method=DELETE">
+                          <button type="submit" class="btn btn-dark">Delete</button></form>
+                  </div>
+              </div>
+                  <% } %>
+      </div>
+      <% } %>
+    </div>
+</body>

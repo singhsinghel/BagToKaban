@@ -1,0 +1,58 @@
+<% layout('/layout/boilerplate') %>
+<style>
+    .main{
+        transform: scale(0.9);
+    }
+    .btn{
+        border-radius: 3rem !important;
+    }
+</style>
+<body>
+    <div class=" container-fluid  d-flex align-items-center justify-content-center">
+        <div class="mt-11 col-md-6 d-flex">
+            <div class=" main w-100 h-100 px-5 align-self-start">
+                <br>
+                <h4 class="display-5">Welcome to <span class="display-3 text-primary fw-semibold">BagtoKaban</span></h4>
+                <br>
+                <h5 class="h5 mb-4">Create your account</h5>
+                <form  autocomplete="off" action="/users/register" method="post"   class="needs-validation col-8" novalidate  class="col-8">
+                    <div class="mb-3">
+                        <input required class="col-8 form-control" type="text" placeholder="Username" name="username">
+                        <div class="valid-feedback"> Available</div>
+                        <div class="invalid-feedback"> Full name is required</div>
+                    </div>
+                    <div class="mb-3">
+                        <input required class="form-control" type="email" placeholder="Email" name="email">
+                        <div class="valid-feedback"> Available</div>
+                        <div class="invalid-feedback"> Description is required</div>
+                    </div>
+                    <div class="mb-3">
+                        <input required class="form-control" type="password" placeholder="Password" name="password">
+                        <div class="valid-feedback"> Available</div>
+                        <div class="invalid-feedback"> password is required</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary  w-50">Create Account</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6  d-flex align-items-center justify-content-center">
+            <div class="main w-100 px-5 mt-11 ">
+                <h4 class="h5 mb-4 text-capitalize">Login to your account</h4>
+                <form  autocomplete="off" action="/users/login" method="post" novalidate  class="needs-validation col-8"  >
+                    <div class="mb-3">
+                        <input required class="form-control" type="text" placeholder="Username" name="username">
+                        <div class="valid-feedback"> Available</div>
+                        <div class="invalid-feedback"> Email is required</div>
+                    </div>
+                    <div class="mb-3">
+                        <input required class="form-control" type="password" placeholder="Password" name="password">
+                        <div class="valid-feedback"> Available</div>
+                        <div class="invalid-feedback"> Password is required</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-40">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
