@@ -1,6 +1,6 @@
+require('dotenv').config();
 process.env.DEBUG = 'development:*';
 process.env.NODE_ENV='development';
-require('dotenv').config();
 const express=require('express');
 const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
