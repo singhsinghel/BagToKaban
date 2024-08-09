@@ -4,9 +4,13 @@ const mongoose=require('mongoose');
 const dbgr=require('debug')('development:mongoose');
 
 
+const connectionString = process.env.AT;
 const main=async()=>{
 
-    await  mongoose.connect(process.env.AT)
+  mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
   }
   main().then((res)=>{
       dbgr('connected');
