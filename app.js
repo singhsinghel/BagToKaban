@@ -34,21 +34,16 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
 console.log(process.env.AT_DB);
 
-const main = async () => {
-    try {
-        await mongoose.connect(process.env.AT_DB, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('Connected to MongoDB');
-    } catch (err) {
-        console.error('Failed to connect to MongoDB', err);
-        throw err;  // Re-throw the error after logging
-    }
-};
+const main=async()=>{
 
-// Call the main function to connect to the database
-main();
+  mongoose.connect(process.env.AT_DB)
+  }
+
+
+  main().then((res)=>{
+    console.log('connnnnn');
+    
+  })
 const store=mongoStore.create({
     mongoUrl:`${process.env.URL}/bagtokaban`,
     crypto:{
