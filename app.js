@@ -32,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,"public")));
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
+console.log(process.env.AT_DB);
 
 const main=async()=>{
 
