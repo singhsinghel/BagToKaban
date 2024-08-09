@@ -1,10 +1,11 @@
 process.env.DEBUG = 'development:*';
 process.env.NODE_ENV='development';
+require('dotenv').config();
 const express=require('express');
 const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
 const path=require('path');
-const db=require('./config/mongooseConnect.js');
+// const db=require('./config/mongooseConnect.js');
 const indexRouter=require('./routes/index.js')
 const ownerRouter= require('./routes/ownerRouter.js');
 const productRouter= require('./routes/productRouter.js');
@@ -18,6 +19,7 @@ const LocalStrategy=require('passport-local');
 const methodOverride=require('method-override');
 app.use(methodOverride('_method'));
 const ejsMate=require('ejs-mate');
+
 const User = require('./models/usermodel.js');
 const flash=require('connect-flash');
 const mongoStore=require('connect-mongo');
@@ -31,6 +33,16 @@ app.use(express.static(path.join(__dirname,"public")));
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+const main=async()=>{
+
+    await  mongoose.connect(process.env.AT)
+  }
+
+
+  main().then((res)=>{
+    console.log('connnnnn');
+    
+  })
 const store=mongoStore.create({
     mongoUrl:`${process.env.URL}/bagtokaban`,
     crypto:{
