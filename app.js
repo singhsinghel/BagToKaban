@@ -35,7 +35,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 const main=async()=>{
 
-    await  mongoose.connect(process.env.AT)
+  mongoose.connect(process.env.AT_DB)
   }
 
 
