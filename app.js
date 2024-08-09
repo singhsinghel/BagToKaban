@@ -1,18 +1,15 @@
 require('dotenv').config();
-process.env.DEBUG = 'development:*';
-process.env.NODE_ENV='development';
 const express=require('express');
 const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
 const path=require('path');
-// const db=require('./config/mongooseConnect.js');
+
 const indexRouter=require('./routes/index.js')
 const ownerRouter= require('./routes/ownerRouter.js');
 const productRouter= require('./routes/productRouter.js');
 const userRouter= require('./routes/userRouter.js');
 const reviewRouter=require('./routes/reviewRouter.js');
 const app=express();
-const dbgr=require('debug')('development:mongoose');
 const session= require('express-session');
 const passport= require('passport');
 const LocalStrategy=require('passport-local');
@@ -36,7 +33,7 @@ console.log(process.env.AT_DB);
 
 const main=async()=>{
 
-  mongoose.connect(process.env.AT_DB)
+ await  mongoose.connect(process.env.AT_DB)
   }
 
 

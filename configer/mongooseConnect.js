@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose=require('mongoose');
 //using config instead of .env as it is much secure
-const dbgr=require('debug')('development:mongoose');
+// const dbgr=require('debug')('development:mongoose');
 
 
 const main=async()=>{
@@ -13,4 +13,4 @@ const main=async()=>{
   }).catch((err)=>{
     dbgr('not connected',err);
   })
-      module.exports=mongoose.connnection;  //exports the connection
+      // module.exports=mongoose.connnection;  //exports the connection
