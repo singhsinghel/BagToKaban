@@ -10,7 +10,6 @@ module.exports.discount=async(req,res)=>{
     let products= await Products.find();
     let filterProd=products.filter(product=>product.discount);
     res.render('shops',{products:filterProd})
-    
 }
 
 module.exports.cartAdd=async(req,res)=>{

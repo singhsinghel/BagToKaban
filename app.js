@@ -33,10 +33,8 @@ console.log(process.env.AT_DB);
 
 const main=async()=>{
 
- await  mongoose.connect(process.env.AT_DB)
+  mongoose.connect(process.env.AT_DB)
   }
-
-
   main().then((res)=>{
     console.log('connnnnn');
     
@@ -62,7 +60,6 @@ const sessionOptions={
     },
 }
 
-//middleware for sessions
 app.use(session(sessionOptions));
 
 app.use(passport.initialize());
