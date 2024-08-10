@@ -4,7 +4,7 @@ const  Owner=require('../models/ownermodel');
 const ExpressError=require('../utils/ExpressError');
 const ownerSchema=require('../schema.js')
 
-if(process.env.NODE_ENV==='development'){
+
 
     router.post('/create', async(req,res)=>{
         let owners= await Owner.find();
@@ -22,7 +22,6 @@ if(process.env.NODE_ENV==='development'){
         await newOwner.save();
         res.send(newOwner)
     })
-}
 
 
 
