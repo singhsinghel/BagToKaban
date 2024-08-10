@@ -17,6 +17,9 @@
       .cardmain{
         width: 100%;
       }
+      .buttons{
+        text-align: center;
+      }
       
     }
 </style>
@@ -44,7 +47,7 @@
                       </div>
             </div>
             <% if (curruser && curruser._id && product.owner && product.owner._id && curruser._id.equals(product.owner._id)) { %>
-                    <div class="row text-center">
+                    <div class="row buttons">
                         <div class="col-6">
                             <form method="get" action="/products/<%= product._id %>/update"> <button class=" update-btn  btn btn-outline-primary" type="submit">Update</button></form>
                         </div>

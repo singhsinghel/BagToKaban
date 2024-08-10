@@ -1,23 +1,28 @@
 <% layout('/layout/boilerplate') %>
 <style>
-  @media (max-width:1000px) {
+ 
+  @media (max-width:500px) {
      .cartitem img{
          transform: scale(0.5);
      }
      .cartitem{
-      transform: scale(0.75);
+      transform: scale(0.5);
+     }
+     .panel{
+      display: flex;
+      flex-direction: column !important;
      }
   }
 </style>
 <div class="main d-flex">
-  <div class="container-fluid h-100 d-flex-column col-md-6 px-5 py-5 gap-4">
-    <div class="contain w-70 container-fluid d-flex-column col-md-6">
+  <div class="container-fluid  h-100 d-flex-column col-md-6 px-md-5 py-md-5 gap-4">
+    <div class="contain w-70  cartContain container-fluid d-flex-column col-md-6" >
       <% cart.forEach(function(cartItem) { %>
         <div class="col-md-4 w-100 cartitem">
           <div class="w-100 d-flex justify-content-center align-items-center p-2 rounded-top" style="width:10rem; max-height: 20rem; background-color: <%= cartItem.product.bgcolor %>;">
             <img class="img-fluid" style="max-height: 12rem;" src="data:image/jpeg;base64,<%= cartItem.product.image.toString('base64') %>" alt="">
           </div>
-          <div class="d-flex justify-content-between p-4" style="background-color: <%= cartItem.product.panelColor %>;">
+          <div class="d-flex panel justify-content-between p-4" style="background-color: <%= cartItem.product.panelColor %>;">
             <p style="color: <%= cartItem.product.textColor %>;"><%= cartItem.product.name %></p>
             <div class="d-flex align-items-center gap-2">
               <a href="/cart/increase/<%= currUser._id %>/<%= cartItem.product._id %>" class="btn btn-sm btn-light btn-circle"><i class="ri-add-line"></i></a>
@@ -34,7 +39,7 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-6 mt-2">
     <h3 class="h5">Price Breakdown</h3>
     <div class="px-4 mt-3">
       <div class="d-flex mt-2">
