@@ -35,7 +35,8 @@ const main=async()=>{
   mongoose.connect(dbUrl)
   }
   main().then((res)=>{
-    console.log(res);
+    console.log('connected');
+    
   })
 const store=mongoStore.create({
     mongoUrl:dbUrl,
@@ -83,5 +84,4 @@ app.use('/products/review',reviewRouter);
 
 app.listen(8080,()=>{
     console.log('log listining');
-    
 })
