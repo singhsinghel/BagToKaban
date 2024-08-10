@@ -10,6 +10,9 @@ const indexController=require('../controllers/indexControllers');
 const wrapAsync=require('../utils/wrapAsync');
 
 router.get('/',(req,res)=>{
+    if(req.user){
+        return res.redirect('/shop');
+    }
     res.render('index')
 })
 
