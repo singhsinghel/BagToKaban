@@ -3,10 +3,11 @@
 // // const dbgr=require('debug')('development:mongoose');
 
 
-// const main=async()=>{
+const main=async()=>{
 
-//     await  mongoose.connect("mongodb+srv://singhelboyankit:J5ZR9LKOzjFNePqR@bagtokabandb.nxmlo.mongodb.net/?retryWrites=true&w=majority&appName=BagtoKabandb")
-//   }
+     console.log('hii server🌟🌟🌟');
+     
+  }
 //   main().then((res)=>{
 //       dbgr('connected');
 //   }).catch((err)=>{
