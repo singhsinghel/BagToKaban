@@ -6,9 +6,20 @@
     .btn{
         border-radius: 3rem !important;
     }
+    @media (max-width:500px) {
+        .cont{
+            flex-direction: column !important;
+            justify-content: space-around;
+            align-items: center;
+            padding: auto;
+        }
+        .login{
+           display: block !important;
+        }
+    }
 </style>
 <body>
-    <div class=" container-fluid  d-flex align-items-center justify-content-center">
+    <div class=" container-fluid cont  d-flex align-items-center justify-content-center">
         <div class="mt-11 col-md-6 d-flex">
             <div class=" main w-100 h-100 px-5 align-self-start">
                 <br>
@@ -24,19 +35,19 @@
                     <div class="mb-3">
                         <input required class="form-control" type="email" placeholder="Email" name="email">
                         <div class="valid-feedback"> Available</div>
-                        <div class="invalid-feedback"> Description is required</div>
+                        <div class="invalid-feedback"> Email is required</div>
                     </div>
                     <div class="mb-3">
-                        <input required class="form-control" type="password" placeholder="Password" name="password">
+                        <input required class="form-control" type="password" placeholder="Create Password" name="password">
                         <div class="valid-feedback"> Available</div>
                         <div class="invalid-feedback"> password is required</div>
                     </div>
-                    <button type="submit" class="btn btn-primary  w-50">Create Account</button>
+                    <button type="submit" class="btn btn-primary  w-50">Sign in</button>
                 </form>
             </div>
         </div>
-        <div class="col-md-6  d-flex align-items-center justify-content-center">
-            <div class="main w-100 px-5 mt-11 ">
+        <div class=" col-md-6 login  d-flex align-items-center justify-content-center">
+            <div class="main w-100 px-5 mt-11">
                 <h4 class="h5 mb-4 text-capitalize">Login to your account</h4>
                 <form  autocomplete="off" action="/users/login" method="post" novalidate  class="needs-validation col-8"  >
                     <div class="mb-3">
