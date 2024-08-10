@@ -26,8 +26,8 @@ router.get('/cart/increase/:id/:pid',isLoggedIn,wrapAsync(indexController.incCar
 
 router.get('/cart/decrease/:id/:pid',isLoggedIn,wrapAsync(indexController.decCart));
 
-router.get('/admin',wrapAsync((req,res)=>{
-    res.render('createProducts');
+router.get('/admin',isLoggedIn,wrapAsync((req,res)=>{
+    res.render('createproducts');
     console.log('create it');
 }));
 module.exports=router;
