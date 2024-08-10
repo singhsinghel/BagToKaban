@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 console.log(process.env.AT_DB);
 
 
-const dbUrl=process.env.DB_AT
+const dbUrl=process.env.AT_DB
 const main=async()=>{
   mongoose.connect(dbUrl)
   }
