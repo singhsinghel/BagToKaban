@@ -36,8 +36,7 @@ const main=async()=>{
   mongoose.connect(process.env.AT_DB)
   }
   main().then((res)=>{
-    console.log('connnnnn');
-    
+    console.log(res);
   })
 const store=mongoStore.create({
     mongoUrl:`${process.env.URL}/bagtokaban`,
